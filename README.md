@@ -1,2 +1,5 @@
 # Projeto-Arquitetura-de-Sistemas
-Repositório destinado à disciplina 'Projeto Arquitetura de Sistemas'
+
+# Equipe Restaurante:
+## Carla Miranda
+## Kaylany Vitoria
