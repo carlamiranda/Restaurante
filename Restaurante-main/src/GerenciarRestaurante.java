@@ -15,12 +15,10 @@ public class GerenciarRestaurante {
     public static void main(String[] args) {
         System.out.println("Bem-vindo(a) ao Restaurante!");
 
-        // Exemplo de como adicionar itens ao cardápio
         cardapio.add(new ItemCardapio(1, "Pizza", "Pizza de calabresa", 35.50) {});
         cardapio.add(new ItemCardapio(2, "Refrigerante", "Coca-Cola 2L", 7.50) {});
 
         while (true) {
-            // Menu de opções
             System.out.println("\nEscolha uma opção:");
             System.out.println("1 - Criar Reserva");
             System.out.println("2 - Criar Pedido");
@@ -62,7 +60,6 @@ public class GerenciarRestaurante {
         }
     }
 
-    // Método para criar uma reserva
     private static void criarReserva() {
         System.out.print("Informe o número da reserva: ");
         int numReserva = scanner.nextInt();
@@ -77,7 +74,7 @@ public class GerenciarRestaurante {
             dataReserva = sdf.parse(dataStr);
         } catch (ParseException e) {
             System.out.println("Erro ao parsear a data. Por favor, use o formato correto (dd/MM/yyyy).");
-            return; // Se a data não for válida, retorna para o menu
+            return;
         }
 
         Reserva reserva = new Reserva(numReserva, numPessoas, dataReserva);
@@ -86,11 +83,10 @@ public class GerenciarRestaurante {
         System.out.println("Reserva criada com sucesso! Número da reserva: " + numReserva);
     }
 
-    // Método para criar um pedido
     private static void criarPedido() {
         System.out.print("Informe o número do pedido: ");
         int numPedido = scanner.nextInt();
-        scanner.nextLine();  // Consumir o newline após o nextInt()
+        scanner.nextLine();
         System.out.print("Informe o nome do cliente: ");
         String nomeCliente = scanner.nextLine();
 
@@ -101,7 +97,6 @@ public class GerenciarRestaurante {
         System.out.println("Pedido criado com sucesso! Número do pedido: " + numPedido);
     }
 
-// Método para adicionar um item ao pedido
 private static void adicionarItemPedido() {
     System.out.print("Informe o número do pedido: ");
     int numPedido = scanner.nextInt();
@@ -114,7 +109,7 @@ private static void adicionarItemPedido() {
         }
 
         System.out.print("Informe o número do item que deseja adicionar: ");
-        int numItem = scanner.nextInt(); // O número do item (não o nome)
+        int numItem = scanner.nextInt();
 
         ItemCardapio item = findItemByNum(numItem);
 
@@ -129,7 +124,6 @@ private static void adicionarItemPedido() {
     }
 }
 
-    // Método para finalizar um pedido
     private static void finalizarPedido() {
         System.out.print("Informe o número do pedido a ser finalizado: ");
         int numPedido = scanner.nextInt();
@@ -143,14 +137,12 @@ private static void adicionarItemPedido() {
         }
     }
 
-    // Método para realizar o pagamento
     private static void realizarPagamento() {
         System.out.print("Informe o número do pedido para realizar o pagamento: ");
         int numPedido = scanner.nextInt();
         Pedido pedido = findPedidoByNum(numPedido);
 
         if (pedido != null) {
-            // Calcular total do pedido
             double total = 0;
             for (ItemCardapio item : pedido.getItensCardapio()) {
                 total += item.getPreco();
@@ -169,7 +161,6 @@ private static void adicionarItemPedido() {
         }
     }
 
-    // Método para cancelar uma reserva
     private static void cancelarReserva() {
         System.out.print("Informe o número da reserva a ser cancelada: ");
         int numReserva = scanner.nextInt();
@@ -183,7 +174,6 @@ private static void adicionarItemPedido() {
         }
     }
 
-    // Método auxiliar para encontrar uma reserva pelo número
     private static Reserva findReservaByNum(int numReserva) {
         for (Reserva reserva : reservas) {
             if (reserva.getNumReserva() == numReserva) {
@@ -193,7 +183,6 @@ private static void adicionarItemPedido() {
         return null;
     }
 
-    // Método auxiliar para encontrar um pedido pelo número
     private static Pedido findPedidoByNum(int numPedido) {
         for (Pedido pedido : pedidos) {
             if (pedido.getNumPedido() == numPedido) {
@@ -203,7 +192,6 @@ private static void adicionarItemPedido() {
         return null;
     }
 
-    // Método auxiliar para encontrar um item no cardápio pelo número
     private static ItemCardapio findItemByNum(int numItem) {
         for (ItemCardapio item : cardapio) {
             if (item.getNumItem() == numItem) {
