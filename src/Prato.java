@@ -1,7 +1,7 @@
 public class Prato extends ItemCardapio {
 
-    public Prato(int numItem, String nomeItem, String descricao, double preco) {
-        super(numItem, nomeItem, descricao, preco);
+    public Prato(int numItem, String nome, String descricao, double preco) {
+        super(numItem, nome, descricao, preco);
     }
 
     @Override

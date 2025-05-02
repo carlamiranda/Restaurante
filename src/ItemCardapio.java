@@ -1,12 +1,12 @@
 public abstract class ItemCardapio {
     private int numItem;
-    private String nomeItem;
+    private String nome;
     private String descricao;
     private double preco;
 
-    public ItemCardapio(int numItem, String nomeItem, String descricao, double preco) {
+    public ItemCardapio(int numItem, String nome, String descricao, double preco) {
         this.numItem = numItem;
-        this.nomeItem = nomeItem;
+        this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
     }
@@ -16,7 +16,7 @@ public abstract class ItemCardapio {
     }
 
     public void exibirDetalhes() {
-        System.out.println("Item: " + nomeItem + " - Descrição: " + descricao + " - Preço: " + preco);
+        System.out.println("Item: " + nome + " - Descrição: " + descricao + " - Preço: " + preco);
     }
 
     public double getPreco() {
@@ -27,7 +27,7 @@ public abstract class ItemCardapio {
         return numItem;
     }
 
-    public String getNomeItem() {
-        return nomeItem;
+    public String getNome() {
+        return nome;
     }
 }
