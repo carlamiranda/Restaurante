@@ -157,16 +157,16 @@ private static void adicionarItemPedido() {
             FormaPagamentoStrategy formaPagamento;
             switch (tipoPagamento) {
                 case "credito":
-                    formaPagamento = new PagamentoCredito();
+                    formaPagamento = new PagamentoCreditoStrategy();
                     break;
                 case "debito":
-                    formaPagamento = new PagamentoDebito();
+                    formaPagamento = new PagamentoDebitoStrategy();
                     break;
                 case "dinheiro":
-                    formaPagamento = new PagamentoDinheiro();
+                    formaPagamento = new PagamentoDinheiroStrategy();
                     break;
                 case "pix":
-                    formaPagamento = new PagamentoPix();
+                    formaPagamento = new PagamentoPixStrategy();
                     break;
                 default:
                     System.out.println("Tipo de pagamento inválido.");
